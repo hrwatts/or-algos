@@ -97,9 +97,9 @@ def pcgrad(
     x_star = x[:, m + 1].astype(float)
     z_star = float(adapter.objective(x_star))
     valid_columns = ~np.isnan(x_values[0, :])
-    x_values = x_values[:, valid_columns]
+    x_history = x_values[:, valid_columns]
 
-    return x_star, z_star, x_values, iterations
+    return x_star, z_star, x_history, iterations
 
 
 def _dispatch_line_search(
